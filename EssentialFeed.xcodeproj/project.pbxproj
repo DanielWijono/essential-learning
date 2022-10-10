@@ -101,10 +101,10 @@
 		0DF0ED4728E5EB100086DD28 /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
+				0DF0ED6328E5EE510086DD28 /* Feed Feature */,
 				0D6E30BE28E7D43500749EDF /* Feed API */,
 				0DF0ED4828E5EB100086DD28 /* EssentialFeed.h */,
 				0DF0ED4928E5EB100086DD28 /* EssentialFeed.docc */,
-				0DF0ED6328E5EE510086DD28 /* Feed Feature */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
