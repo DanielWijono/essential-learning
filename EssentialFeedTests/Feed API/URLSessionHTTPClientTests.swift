@@ -27,12 +27,12 @@ class URLSessionHTTPClientTests: XCTestCase {
     let exp = expectation(description: "wait for request")
 
     URLProtocolStub.observeRequests { request in
-      XCTAssertEqual(request.url, self.anyURL())
+      XCTAssertEqual(request.url, anyURL())
       XCTAssertEqual(request.httpMethod, "GET")
       exp.fulfill()
     }
 
-    makeSUT().get(from: self.anyURL()) { _ in
+    makeSUT().get(from: anyURL()) { _ in
 
     }
     wait(for: [exp], timeout: 1.0)
