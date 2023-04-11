@@ -272,6 +272,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		0D554F0B29E5905B00DEBF7A /* Feed UI */ = {
+			isa = PBXGroup;
+			children = (
+				0DEF57E829A3C1B9002828BF /* FeedViewControllerTests.swift */,
+			);
+			path = "Feed UI";
+			sourceTree = "<group>";
+		};
 		0D5CA1F528F8651E00D664B4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,7 +346,7 @@
 		0DAFF35129929AAD00079D8F /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				0DEF57E829A3C1B9002828BF /* FeedViewControllerTests.swift */,
+				0D554F0B29E5905B00DEBF7A /* Feed UI */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
