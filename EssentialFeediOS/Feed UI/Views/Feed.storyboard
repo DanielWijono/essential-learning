@@ -77,6 +77,9 @@
                                                             <state key="normal" title="↻">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="retryButtonTapped" destination="4Aa-lg-gTp" eventType="touchUpInside" id="xzc-7m-EQE"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
@@ -118,6 +121,14 @@
                                         <constraint firstItem="AIZ-ON-RY8" firstAttribute="top" secondItem="ZOf-kB-Mm6" secondAttribute="topMargin" priority="999" constant="6" id="zeV-IS-QiH"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="H63-o4-rxp" id="mCp-fF-AdV"/>
+                                    <outlet property="feedImageContainer" destination="FAU-iA-TTE" id="fVG-Or-MFC"/>
+                                    <outlet property="feedImageRetryButton" destination="ojQ-jM-69D" id="fWf-YF-BzE"/>
+                                    <outlet property="feedImageView" destination="tsT-7G-iNQ" id="aMK-vi-ZqX"/>
+                                    <outlet property="locationContainer" destination="iiY-WY-aBZ" id="QjY-C4-8c4"/>
+                                    <outlet property="locationLabel" destination="gSb-GM-nc6" id="Z57-Ny-Et4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
