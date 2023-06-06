@@ -1,5 +1,5 @@
 //
-//  FeedViewControllerTests.swift
+//  FeedUIIntegrationTests.swift.swift
 //  EssentialFeediOSTests
 //
 //  Created by Silverius Daniel Wijono on 20/02/23.
@@ -10,7 +10,7 @@ import UIKit
 import EssentialFeed
 import EssentialFeediOS
 
-final class FeedViewControllerTests: XCTestCase {
+final class FeedUIIntegrationTests: XCTestCase {
   
   func test_feedView_hasTitle() {
     let (sut, _) = makeSUT()
@@ -438,38 +438,5 @@ private extension FeedImageCell {
   
   var renderedImage: Data? {
     return feedImageView.image?.pngData()
-  }
-}
-
-private extension UIButton {
-  func simulateTap() {
-    allTargets.forEach { target in
-      actions(forTarget: target, forControlEvent: .touchUpInside)?.forEach {
-        (target as NSObject).perform(Selector($0))
-      }
-    }
-  }
-}
-
-private extension UIRefreshControl {
-  func simulatePullToRefresh() {
-    allTargets.forEach { target in
-      actions(forTarget: target, forControlEvent: .valueChanged)?.forEach({
-        (target as NSObject).perform(Selector($0))
-      })
-    }
-  }
-}
-
-private extension UIImage {
-  static func make(withColor color: UIColor) -> UIImage {
-    let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
-    let format = UIGraphicsImageRendererFormat()
-    format.scale = 1
-    
-    return UIGraphicsImageRenderer(size: rect.size, format: format).image { rendererContext in
-      color.setFill()
-      rendererContext.fill(rect)
-    }
   }
 }
