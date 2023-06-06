@@ -167,6 +167,7 @@
 		0DC635662A2F871D0046235D /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		0DC635692A2F8BD60046235D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
 		0DC6356B2A2F8C1F0046235D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Feed.strings"; sourceTree = "<group>"; };
+		0DC6356C2A2F8C530046235D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
 		0DD3DEC12948BF4600E4956E /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 		0DD3DEC32948BFAA00E4956E /* XCTestCase+FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		0DDC35EF295DA69B00A0BA4C /* EssentialFeedCacheIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedCacheIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -694,6 +695,7 @@
 				en,
 				Base,
 				"pt-BR",
+				el,
 			);
 			mainGroup = 0DF0ED3B28E5EB100086DD28;
 			productRefGroup = 0DF0ED4628E5EB100086DD28 /* Products */;
@@ -896,6 +898,7 @@
 			children = (
 				0DC635692A2F8BD60046235D /* en */,
 				0DC6356B2A2F8C1F0046235D /* pt-BR */,
+				0DC6356C2A2F8C530046235D /* el */,
 			);
 			name = Feed.strings;
 			sourceTree = "<group>";
