@@ -11,6 +11,7 @@
 		0D0174AB28FD9E0E005DECC3 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0ED4528E5EB100086DD28 /* EssentialFeed.framework */; };
 		0D0174B128FDA893005DECC3 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CA1F628F8653A00D664B4 /* XCTestCase+MemoryLeakTracking.swift */; };
 		0D02E56129C0B28900A99595 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02E56029C0B28900A99595 /* FeedImageCell.swift */; };
+		0D201A622A61965300B87CA1 /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D201A612A61965300B87CA1 /* FeedPresenterTests.swift */; };
 		0D38CC0D29AE6422005C3BAC /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D38CC0C29AE6422005C3BAC /* FeedViewController.swift */; };
 		0D4D3CCA2902DFE400D8CA4B /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4D3CC92902DFE400D8CA4B /* CacheFeedUseCaseTests.swift */; };
 		0D554F0529E58CA500DEBF7A /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D554F0429E58CA500DEBF7A /* FeedImageDataLoader.swift */; };
@@ -139,6 +140,7 @@
 		0D0174A728FD9E0E005DECC3 /* EssentialFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0174A928FD9E0E005DECC3 /* EssentialFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		0D02E56029C0B28900A99595 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
+		0D201A612A61965300B87CA1 /* FeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterTests.swift; sourceTree = "<group>"; };
 		0D38CC0C29AE6422005C3BAC /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0D4D3CC92902DFE400D8CA4B /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		0D554F0429E58CA500DEBF7A /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
@@ -266,6 +268,14 @@
 				0D0174A928FD9E0E005DECC3 /* EssentialFeedAPIEndToEndTests.swift */,
 			);
 			path = EssentialFeedAPIEndToEndTests;
+			sourceTree = "<group>";
+		};
+		0D201A602A61962500B87CA1 /* Feed Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				0D201A612A61965300B87CA1 /* FeedPresenterTests.swift */,
+			);
+			path = "Feed Presentation";
 			sourceTree = "<group>";
 		};
 		0D4D3CC82902DFD000D8CA4B /* Feed Cache */ = {
@@ -515,6 +525,7 @@
 		0DF0ED5328E5EB100086DD28 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				0D201A602A61962500B87CA1 /* Feed Presentation */,
 				0D5CA1F528F8651E00D664B4 /* Helper */,
 				0D4D3CC82902DFD000D8CA4B /* Feed Cache */,
 				0DB1798328F1BEB1004F6F94 /* Feed API */,
@@ -869,6 +880,7 @@
 			files = (
 				0DEF28E9291AA36A004A9689 /* FeedCacheTestHelpers.swift in Sources */,
 				0DEF28E7291A9D99004A9689 /* ValidateFeedCacheUseCaseTests.swift in Sources */,
+				0D201A622A61965300B87CA1 /* FeedPresenterTests.swift in Sources */,
 				0DEF28D92914060F004A9689 /* LocalFeedFromCacheUseCaseTests.swift in Sources */,
 				0DFB0522294E048500B114E8 /* XCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */,
 				0D6E30BC28E7362100749EDF /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
@@ -975,7 +987,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1005,7 +1017,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1032,7 +1044,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5H589R53ZA;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1058,7 +1070,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5H589R53ZA;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
