@@ -14,7 +14,7 @@ struct FeedImageViewModel {
   let image: Any?
   let isLoading: Bool
   let shouldRetry: Bool
-
+  
   var hasLocation: Bool {
     return location != nil
   }
@@ -27,9 +27,9 @@ protocol FeedImageView {
 class FeedImagePresenter {
   private let view: FeedImageView
   private let imageTransformer: (Data) -> Any?
-
+  
   init(view: FeedImageView, imageTransformer: @escaping (Data) -> Any?
-) {
+  ) {
     self.view = view
     self.imageTransformer = imageTransformer
   }
@@ -77,9 +77,9 @@ class FeedImagePresenterTests: XCTestCase {
   }
   
   func test_didFinishLoadingImageData_displaysRetryOnFailedImageTransformation() {
-    let (sut, view) = makeSUT(imageTransformer: { _ in nil })
-        let image = uniqueImage()
-        let data = Data()
+    let (sut, view) = makeSUT(imageTransformer: fail)
+    let image = uniqueImage()
+    let data = Data()
     
     sut.didFinishLoadingImageData(with: data, for: image)
     
@@ -100,6 +100,10 @@ class FeedImagePresenterTests: XCTestCase {
     trackForMemoryLeaks(view, file: file, line: line)
     trackForMemoryLeaks(sut, file: file, line: line)
     return (sut, view)
+  }
+  
+  private var fail: (Data) -> Any? {
+    return { _ in nil }
   }
   
   private class ViewSpy: FeedImageView {
