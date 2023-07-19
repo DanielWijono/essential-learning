@@ -48,7 +48,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     let (sut, client) = makeSUT()
     
     let samples = [199, 201, 300, 400, 500]
-     
+    
     samples.enumerated().forEach { index, code in
       expect(sut, toCompleteWith: failure(.invalidData)) {
         let json = makeItemsJSON([])
@@ -68,7 +68,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
   
   func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
     let (sut, client) = makeSUT()
-
+    
     expect(sut, toCompleteWith: .success([])) {
       let emptyListJSON = makeItemsJSON([])
       client.complete(withStatusCode: 200, data: emptyListJSON)
@@ -160,14 +160,19 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
   }
   
   private class HTTPClientSpy: HTTPClient {
+    private struct Task: HTTPClientTask {
+      func cancel() {}
+    }
+    
     private var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
     
     var requestedURLs: [URL] {
       return messages.map { $0.url }
     }
     
-    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
+    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
       messages.append((url, completion))
+      return Task()
     }
     
     func complete(with error: Error, at index: Int = 0) {
