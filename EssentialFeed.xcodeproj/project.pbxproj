@@ -11,6 +11,7 @@
 		0D0174AB28FD9E0E005DECC3 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0ED4528E5EB100086DD28 /* EssentialFeed.framework */; };
 		0D0174B128FDA893005DECC3 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CA1F628F8653A00D664B4 /* XCTestCase+MemoryLeakTracking.swift */; };
 		0D02E56129C0B28900A99595 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02E56029C0B28900A99595 /* FeedImageCell.swift */; };
+		0D09AD952A67D11A00C61FB6 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D554F0429E58CA500DEBF7A /* FeedImageDataLoader.swift */; };
 		0D201A622A61965300B87CA1 /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D201A612A61965300B87CA1 /* FeedPresenterTests.swift */; };
 		0D201A6C2A62202500B87CA1 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D201A6B2A62202500B87CA1 /* FeedPresenter.swift */; };
 		0D201A6D2A62208D00B87CA1 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D201A672A621D3300B87CA1 /* Feed.strings */; };
@@ -25,7 +26,6 @@
 		0D201A7E2A63CD2500B87CA1 /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D201A7D2A63CD2500B87CA1 /* FeedImageViewModel.swift */; };
 		0D38CC0D29AE6422005C3BAC /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D38CC0C29AE6422005C3BAC /* FeedViewController.swift */; };
 		0D4D3CCA2902DFE400D8CA4B /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4D3CC92902DFE400D8CA4B /* CacheFeedUseCaseTests.swift */; };
-		0D554F0529E58CA500DEBF7A /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D554F0429E58CA500DEBF7A /* FeedImageDataLoader.swift */; };
 		0D554F0D29E592E900DEBF7A /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D554F0C29E592E900DEBF7A /* FeedImageCellController.swift */; };
 		0D554F1029E5999B00DEBF7A /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D554F0F29E5999B00DEBF7A /* FeedUIComposer.swift */; };
 		0D5CA1F728F8653A00D664B4 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CA1F628F8653A00D664B4 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -315,14 +315,6 @@
 			path = "Feed Cache";
 			sourceTree = "<group>";
 		};
-		0D554F0329E58C9300DEBF7A /* Feed Image Loader */ = {
-			isa = PBXGroup;
-			children = (
-				0D554F0429E58CA500DEBF7A /* FeedImageDataLoader.swift */,
-			);
-			path = "Feed Image Loader";
-			sourceTree = "<group>";
-		};
 		0D554F0629E58D3700DEBF7A /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,7 +428,6 @@
 			isa = PBXGroup;
 			children = (
 				0D554F0629E58D3700DEBF7A /* Feed UI */,
-				0D554F0329E58C9300DEBF7A /* Feed Image Loader */,
 				0DAFF34729929AAC00079D8F /* EssentialFeediOS.docc */,
 			);
 			path = EssentialFeediOS;
@@ -550,6 +541,7 @@
 			children = (
 				0DF0ED5F28E5EB760086DD28 /* FeedImage.swift */,
 				0DF0ED6128E5EDA40086DD28 /* FeedLoader.swift */,
+				0D554F0429E58CA500DEBF7A /* FeedImageDataLoader.swift */,
 			);
 			path = "Feed Feature";
 			sourceTree = "<group>";
@@ -815,7 +807,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D554F0529E58CA500DEBF7A /* FeedImageDataLoader.swift in Sources */,
 				0DC635722A3880DB0046235D /* MainQueueDispatchDecorator.swift in Sources */,
 				0DC635742A38812A0046235D /* WeakRefVirtualProxy.swift in Sources */,
 				0D554F1029E5999B00DEBF7A /* FeedUIComposer.swift in Sources */,
@@ -874,6 +865,7 @@
 				0D201A712A62232700B87CA1 /* FeedLoadingViewModel.swift in Sources */,
 				0DB1798028F1B758004F6F94 /* HTTPClient.swift in Sources */,
 				0D6F79AB2959F517000FC12E /* CoreDataHelpers.swift in Sources */,
+				0D09AD952A67D11A00C61FB6 /* FeedImageDataLoader.swift in Sources */,
 				0DF0ED6228E5EDA40086DD28 /* FeedLoader.swift in Sources */,
 				0D9AE6B72954A21F00D838D3 /* CoreDataFeedStore.swift in Sources */,
 				0D6F79AD2959F592000FC12E /* ManagedCache.swift in Sources */,
