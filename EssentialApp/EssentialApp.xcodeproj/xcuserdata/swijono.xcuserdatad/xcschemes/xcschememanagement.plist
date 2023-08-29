@@ -3,11 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
+	<dict/>
+	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>EssentialApp.xcscheme_^#shared#^_</key>
+		<key>0DDD03242A9E41810022DB8F</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
