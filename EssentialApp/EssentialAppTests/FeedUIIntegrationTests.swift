@@ -398,7 +398,7 @@ final class FeedUIIntegrationTests: XCTestCase {
   }
 }
 
-private extension FeedViewController {
+extension FeedViewController {
   func simulateUserInitiatedFeedReload() {
     refreshControl?.simulatePullToRefresh()
   }
@@ -431,6 +431,10 @@ private extension FeedViewController {
     let ds = tableView.prefetchDataSource
     let index = IndexPath(row: row, section: feedImagesSection)
     ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
+  }
+  
+  public func renderedFeedImageData(at index: Int) -> Data? {
+    return simulateFeedImageViewVisible(at: index)?.renderedImage
   }
   
   var errorMessage: String? {
