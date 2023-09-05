@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D5EC6752AA77D6D0069AE5F /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EC6742AA77D6D0069AE5F /* CombineHelpers.swift */; };
 		0DB54C6F2A935BF10092A136 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB54C6E2A935BF10092A136 /* AppDelegate.swift */; };
 		0DB54C712A935BF10092A136 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB54C702A935BF10092A136 /* SceneDelegate.swift */; };
 		0DB54C732A935BF10092A136 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB54C722A935BF10092A136 /* ViewController.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D5EC6742AA77D6D0069AE5F /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 		0DB54C6B2A935BF10092A136 /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB54C6E2A935BF10092A136 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DB54C702A935BF10092A136 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				0DB54C772A935BF20092A136 /* Assets.xcassets */,
 				0DB54C792A935BF20092A136 /* LaunchScreen.storyboard */,
 				0DB54C7C2A935BF20092A136 /* Info.plist */,
+				0D5EC6742AA77D6D0069AE5F /* CombineHelpers.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			files = (
 				0DB54C732A935BF10092A136 /* ViewController.swift in Sources */,
 				0DDD033F2A9F9C170022DB8F /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
+				0D5EC6752AA77D6D0069AE5F /* CombineHelpers.swift in Sources */,
 				0DB54C6F2A935BF10092A136 /* AppDelegate.swift in Sources */,
 				0DB54C712A935BF10092A136 /* SceneDelegate.swift in Sources */,
 				0DDD033E2A9F9C170022DB8F /* FeedUIComposer.swift in Sources */,
