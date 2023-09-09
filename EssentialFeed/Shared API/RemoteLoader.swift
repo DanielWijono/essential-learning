@@ -42,7 +42,6 @@ public final class RemoteLoader<Resource> {
   
   private func map(_ data: Data, from response: HTTPURLResponse) -> Result {
     do {
-      let items = try FeedItemsMapper.map(data, from: response)
       return .success(try mapper(data, response))
     } catch {
       return .failure(Error.invalidData)
