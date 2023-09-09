@@ -59,8 +59,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     let remoteFeedLoader = RemoteLoader(url: remoteURL, client: httpClient, mapper: FeedItemsMapper.map)
     
-    return remoteFeedLoader
-      .loadPublisher()
+    return httpClient
+      .getPublisher(url: remoteURL)
+      .tryMap(FeedItemsMapper.map)
       .caching(to: localFeedLoader)
       .fallback(to: localFeedLoader.loadPublisher)
   }
