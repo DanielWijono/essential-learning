@@ -9,8 +9,8 @@ import Foundation
 
 public protocol ResourceView {
   associatedtype ResourceViewModel
-
-      func display(_ viewModel: ResourceViewModel)
+  
+  func display(_ viewModel: ResourceViewModel)
 }
 
 public final class LoadResourcePresenter<Resource, View: ResourceView> {
