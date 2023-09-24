@@ -111,6 +111,19 @@ final class FeedUIIntegrationTests: XCTestCase {
     XCTAssertEqual(sut.errorMessage, nil)
   }
   
+  func test_tapOnErrorView_hidesErrorMessage() {
+    let (sut, loader) = makeSUT()
+    
+    sut.loadViewIfNeeded()
+    XCTAssertEqual(sut.errorMessage, nil)
+    
+    loader.completeFeedLoadingWithError(at: 0)
+    XCTAssertEqual(sut.errorMessage, loadError)
+    
+    sut.simulateErrorViewTap()
+    XCTAssertEqual(sut.errorMessage, nil)
+  }
+  
   func test_feedImageView_loadsImageURLWhenVisible() {
     let image0 = makeImage(url: URL(string: "http://url-0.com")!)
     let image1 = makeImage(url: URL(string: "http://url-1.com")!)
@@ -456,8 +469,12 @@ extension ListViewController {
     return simulateFeedImageViewVisible(at: index)?.renderedImage
   }
   
+  func simulateErrorViewTap() {
+    errorView.simulateTap()
+  }
+  
   var errorMessage: String? {
-    return errorView?.message
+    return errorView.message
   }
   
   var isShowingLoadingIndicator: Bool {
