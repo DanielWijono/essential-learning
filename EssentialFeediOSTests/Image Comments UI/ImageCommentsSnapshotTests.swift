@@ -1,10 +1,3 @@
-//
-//  ImageCommentsSnapshotTests.swift
-//  EssentialFeediOSTests
-//
-//  Created by Silverius Daniel Wijono on 24/09/23.
-//
-
 import XCTest
 import EssentialFeediOS
 @testable import EssentialFeed
@@ -21,6 +14,7 @@ class ImageCommentsSnapshotTests: XCTestCase {
   }
   
   // MARK: - Helpers
+  
   private func makeSUT() -> ListViewController {
     let bundle = Bundle(for: ListViewController.self)
     let storyboard = UIStoryboard(name: "ImageComments", bundle: bundle)
@@ -32,6 +26,10 @@ class ImageCommentsSnapshotTests: XCTestCase {
   }
   
   private func comments() -> [CellController] {
+    commentControllers().map { CellController($0) }
+  }
+  
+  private func commentControllers() -> [ImageCommentCellController] {
     return [
       ImageCommentCellController(
         model: ImageCommentViewModel(
