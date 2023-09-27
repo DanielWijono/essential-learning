@@ -22,6 +22,22 @@ class FeedUIIntegrationTests: XCTestCase {
     XCTAssertEqual(sut.title, feedTitle)
   }
   
+  func test_imageSelection_notifiesHandler() {
+    let image0 = makeImage()
+    let image1 = makeImage()
+    var selectedImages = [FeedImage]()
+    let (sut, loader) = makeSUT(selection: { selectedImages.append($0) })
+    
+    sut.loadViewIfNeeded()
+    loader.completeFeedLoading(with: [image0, image1], at: 0)
+    
+    sut.simulateTapOnFeedImage(at: 0)
+    XCTAssertEqual(selectedImages, [image0])
+    
+    sut.simulateTapOnFeedImage(at: 1)
+    XCTAssertEqual(selectedImages, [image0, image1])
+  }
+  
   func test_loadFeedActions_requestFeedFromLoader() {
     let (sut, loader) = makeSUT()
     
@@ -332,9 +348,14 @@ class FeedUIIntegrationTests: XCTestCase {
   
   //MARK: - Helpers
   
-  private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ListViewController, loader: LoaderSpy) {
+  private func makeSUT(
+    selection: @escaping (FeedImage) -> Void = { _ in },
+    file: StaticString = #filePath,
+    line: UInt = #line) -> (sut: ListViewController, loader: LoaderSpy) {
     let loader = LoaderSpy()
-    let sut = FeedUIComposer.feedComposedWith(feedLoader: loader.loadPublisher, imageLoader: loader.loadImageDataPublisher)
+    let sut = FeedUIComposer.feedComposedWith(feedLoader: loader.loadPublisher,
+                                              imageLoader: loader.loadImageDataPublisher,
+                                              selection: selection)
     trackForMemoryLeaks(loader, file: file, line: line)
     trackForMemoryLeaks(sut, file: file, line: line)
     return (sut, loader)
@@ -346,111 +367,5 @@ class FeedUIIntegrationTests: XCTestCase {
   
   private func anyImageData() -> Data {
     return UIImage.make(withColor: .red).pngData()!
-  }
-}
-
-extension ListViewController {
-  public override func loadViewIfNeeded() {
-    super.loadViewIfNeeded()
-    
-    tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
-  }
-  
-  func simulateUserInitiatedReload() {
-    refreshControl?.simulatePullToRefresh()
-  }
-  
-  @discardableResult
-  func simulateFeedImageViewVisible(at index: Int) -> FeedImageCell? {
-    return feedImageView(at: index) as? FeedImageCell
-  }
-  
-  @discardableResult
-  func simulateFeedImageViewNotVisible(at row: Int) -> FeedImageCell? {
-    let view = simulateFeedImageViewVisible(at: row)
-    
-    let delegate = tableView.delegate
-    let index = IndexPath(row: row, section: feedImagesSection)
-    delegate?.tableView?(tableView, didEndDisplaying: view!, forRowAt: index)
-    
-    return view
-  }
-  
-  func simulateFeedImageViewNearVisible(at row: Int) {
-    let ds = tableView.prefetchDataSource
-    let index = IndexPath(row: row, section: feedImagesSection)
-    ds?.tableView(tableView, prefetchRowsAt: [index])
-  }
-  
-  func simulateFeedImageViewNotNearVisible(at row: Int) {
-    simulateFeedImageViewNearVisible(at: row)
-    
-    let ds = tableView.prefetchDataSource
-    let index = IndexPath(row: row, section: feedImagesSection)
-    ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
-  }
-  
-  public func renderedFeedImageData(at index: Int) -> Data? {
-    return simulateFeedImageViewVisible(at: index)?.renderedImage
-  }
-  
-  func simulateErrorViewTap() {
-    errorView.simulateTap()
-  }
-  
-  var errorMessage: String? {
-    return errorView.message
-  }
-  
-  var isShowingLoadingIndicator: Bool {
-    return refreshControl?.isRefreshing == true
-  }
-  
-  func numberOfRenderedFeedImageViews() -> Int {
-    tableView.numberOfSections == 0 ? 0 :  tableView.numberOfRows(inSection: feedImagesSection)
-  }
-  
-  func feedImageView(at row: Int) -> UITableViewCell? {
-    guard numberOfRenderedFeedImageViews() > row else {
-      return nil
-    }
-    let ds = tableView.dataSource
-    let index = IndexPath(row: row, section: feedImagesSection)
-    return ds?.tableView(tableView, cellForRowAt: index)
-  }
-  
-  private var feedImagesSection: Int {
-    return 0
-  }
-}
-
-extension ListViewController {
-  func numberOfRenderedComments() -> Int {
-    tableView.numberOfSections == 0 ? 0 :  tableView.numberOfRows(inSection: commentsSection)
-  }
-  
-  func commentMessage(at row: Int) -> String? {
-    commentView(at: row)?.messageLabel.text
-  }
-  
-  func commentDate(at row: Int) -> String? {
-    commentView(at: row)?.dateLabel.text
-  }
-  
-  func commentUsername(at row: Int) -> String? {
-    commentView(at: row)?.usernameLabel.text
-  }
-  
-  private func commentView(at row: Int) -> ImageCommentCell? {
-    guard numberOfRenderedComments() > row else {
-      return nil
-    }
-    let ds = tableView.dataSource
-    let index = IndexPath(row: row, section: commentsSection)
-    return ds?.tableView(tableView, cellForRowAt: index) as? ImageCommentCell
-  }
-  
-  private var commentsSection: Int {
-    return 0
   }
 }
